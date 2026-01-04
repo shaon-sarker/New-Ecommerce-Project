@@ -23,10 +23,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $sliders = Cache::rememberForever('sliders', function(){
-            return Slider::where('status', 1)->orderBy('serial', 'asc')->get();
-        });
-
+        // $sliders = Cache::rememberForever('sliders', function(){
+        //     return Slider::where('status', 1)->orderBy('serial', 'asc')->get();
+        // });
+        $sliders = Slider::where('status', 1)->orderBy('serial', 'asc')->get();
         $flashSaleDate = FlashSale::first();
 
         $flashSaleItems = FlashSaleItem::where('show_at_home', 1)->where('status', 1)->pluck('product_id')->toArray();

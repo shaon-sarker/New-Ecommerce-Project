@@ -5,6 +5,11 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
   <title>General Dashboard &mdash; Stisla</title>
+  <style>
+    .main-sidebar {
+        background-color: #000000!important;
+    }
+  </style>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{asset('backend/assets/modules/bootstrap/css/bootstrap.min.css')}}">
