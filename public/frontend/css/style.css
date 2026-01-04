@@ -1470,7 +1470,8 @@ PRODUCT MODAL VIEW END
   left: -15px;
   width: 35px;
   height: 35px;
-  background: #08C;
+  /* background: #08C; */
+  background: #5d925d;
   opacity: .5;
   line-height: 35px;
   font-size: 15px;
@@ -1544,7 +1545,8 @@ PRODUCT MODAL VIEW END
   font-size: 20px;
   font-weight: 600;
   text-transform: capitalize;
-  color: #08C;
+  /* color: #08C; */
+  color: #5d925d;
   margin-right: 10px;
 }
 
@@ -1574,7 +1576,8 @@ PRODUCT MODAL VIEW END
   text-align: center;
   width: 50px;
   height: 30px;
-  background: #08C;
+  /* background: #08C; */
+  background: #5d925d;
   margin: 0px 5px;
   border-radius: 3px;
   padding-top: 2px;
@@ -1632,7 +1635,7 @@ PRODUCT MODAL VIEW END
 
 .wsus__new {
   position: absolute;
-  background: #08C;
+  background: #5d925d;
   width: auto;
   height: 25px;
   text-align: center;
@@ -1740,7 +1743,8 @@ PRODUCT MODAL VIEW END
 .wsus__single_pro_icon li a:hover {
   color: #fff !important;
   border-color: #08C;
-  background: #08C;
+  /* background: #08C; */
+  background: #5d925d;
 }
 
 .wsus__product_details {
@@ -1820,6 +1824,7 @@ PRODUCT MODAL VIEW END
   width: 100%;
   text-align: center;
   border-radius: 0;
+  background: #5d925d;
 }
 
 /* .wsus__product_item:hover
@@ -1848,7 +1853,9 @@ PRODUCT MODAL VIEW END
   left: 15px;
   width: 35px;
   height: 35px;
-  background: #08C;
+  /* background: #08C; */
+  background: #5d925d;
+
   opacity: .5;
   line-height: 35px;
   font-size: 15px;
@@ -1931,7 +1938,8 @@ MONTHLY TOP PRODUCT START
 .monthly_top_filter2 button:hover,
 .monthly_top_filter2 button.active {
   color: #fff;
-  background: #08C !important;
+  /* background: #08C !important; */
+  background: #5d925d !important;
 }
 
 .wsus__monthly_top_banner {
@@ -2792,7 +2800,8 @@ footer {
 .wsus__footer_bottom {
   padding: 30px 0px;
   margin-top: 67px;
-  background: #08C;
+  /* background: #08C; */
+  background: #324e32;
 }
 
 .wsus__copyright {
@@ -2892,7 +2901,8 @@ BREADCRUMB START
 
 #wsus__breadcrumb ul li:last-child a {
   margin: 0;
-  color: #54b3fd;
+  /* color: #54b3fd; */
+  color: #5d925d;
 }
 
 #wsus__breadcrumb ul li:last-child a::after {
@@ -3235,9 +3245,11 @@ PPRODUCT PAGE START
 }
 
 .wsus__product_topbar_left #v-pills-tab button.active {
-  background: #08C;
+  /* background: #08C; */
+  background: #5d925d;
   color: #fff;
-  border-color: #08C;
+  /* border-color: #08C; */
+  border-color: rgb(121, 214, 141);
 }
 
 .wsus__product_topbar .select2-container--default .select2-selection--single {
@@ -3477,7 +3489,8 @@ PRODUCT DETAILS START
 
 .wsus__stock_area .in_stock {
   background: #ff9f00;
-  color: #fff;
+  /* color: #fff; */
+  color: #000000;
   text-transform: capitalize;
   font-size: 14px;
   font-weight: 600;
@@ -3535,7 +3548,8 @@ PRODUCT DETAILS START
 .wsus__pro_details_text h4 {
   font-size: 30px;
   font-weight: 700;
-  color: #08C;
+  /* color: #08C; */
+  color: #5d925d;
   margin: 10px 0px 5px 0px;
   display: flex;
   align-items: center;
@@ -3737,6 +3751,7 @@ PRODUCT DETAILS START
   margin-right: 10px;
   border: none;
   border-radius: 30px;
+  background: #5d925d;
 }
 
 .wsus__button_area li .buy_now,
@@ -5284,7 +5299,7 @@ WISHLIST PAGE START
   border-radius: 5px;
   margin-bottom: 20px;
   resize: none;
-  border: 1px solid #eee;
+  border: 1px solid #cecaca;
 }
 
 .wsus__con_map {
@@ -5343,7 +5358,8 @@ WISHLIST PAGE START
 .wsus__login_reg_area .nav-pills .show>.nav-link {
   color: #fff !important;
   border-color: #08C !important;
-  background: #08C !important;
+  /* background: #08C !important; */
+  background: #5d925d !important;
 }
 
 .wsus__login_input {
@@ -5355,7 +5371,8 @@ WISHLIST PAGE START
 .wsus__login_input i {
   width: 57px;
   height: 47px;
-  background: #08C;
+  /* background: #08C; */
+  background: #5d925d;
   line-height: 45px;
   text-align: center;
   margin-right: 10px;
@@ -5370,7 +5387,8 @@ WISHLIST PAGE START
 .wsus__login_input input {
   width: 100%;
   padding: 10px 20px;
-  border-radius: 30px;
+  /* border-radius: 30px; */
+  border-radius: 13px;
   font-size: 16px;
   font-weight: 400;
   color: #353535;
@@ -8616,6 +8634,7 @@ header .wsus__call_text a:hover {
 .wsus_menu_cat_item {
   width: 250px;
   height: 575px;
+  /* height: 189px; */
   position: absolute;
   top: 99%;
   left: 0;
@@ -8919,7 +8938,8 @@ header .wsus__call_text a:hover {
   height: 50px;
   border-radius: 50%;
   line-height: 50px;
-  background: #08C;
+  /* background: #08C; */
+  background: #5d925d;
   position: absolute;
   top: -25px;
   left: 50%;
@@ -9639,6 +9659,7 @@ color: #fff;
 border: 1px solid #08C;
 background: #08C;
 margin-right: 10px;
+background: #5d925d;
 }
 
 .add_cart_two:hover {

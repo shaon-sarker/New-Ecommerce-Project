@@ -133,7 +133,7 @@
                                         padding: 7px 11px;
                                         border-radius: 100%;" href="javascript:;" class="add_to_wishlist" data-id="{{$product->id}}"><i class="fal fa-heart"></i></a></li>
 
-                                    <li>
+                                    {{-- <li>
                                         <button type="button" style="border: 1px solid gray;
                                         padding: 7px 11px;
                                         margin-left: 7px;
@@ -141,7 +141,7 @@
                                             <i class="far fa-comment-alt text-light"></i>
                                         </button>
 
-                                    </li>
+                                    </li> --}}
 
 
 
@@ -166,11 +166,11 @@
                                         aria-controls="pills-home" aria-selected="true">Description</button>
                                 </li>
 
-                                <li class="nav-item" role="presentation">
+                                {{-- <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-contact" type="button" role="tab"
                                         aria-controls="pills-contact" aria-selected="false">Vendor Info</button>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="pills-contact-tab2" data-bs-toggle="pill"
                                         data-bs-target="#pills-contact2" type="button" role="tab"

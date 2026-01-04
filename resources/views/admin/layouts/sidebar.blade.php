@@ -24,8 +24,8 @@
                             href="{{ route('admin.category.index') }}">Category</a></li>
                     <li class="{{ setActive(['admin.sub-category.*']) }}"><a class="nav-link"
                             href="{{ route('admin.sub-category.index') }}">Sub Category</a></li>
-                    <li class="{{ setActive(['admin.child-category.*']) }}"> <a class="nav-link"
-                            href="{{ route('admin.child-category.index') }}">Child Category</a></li>
+                    {{-- <li class="{{ setActive(['admin.child-category.*']) }}"> <a class="nav-link"
+                            href="{{ route('admin.child-category.index') }}">Child Category</a></li> --}}
 
                 </ul>
             </li>
@@ -55,10 +55,10 @@
                         ]) }}">
                         <a class="nav-link" href="{{ route('admin.products.index') }}">Products</a>
                     </li>
-                    <li class="{{ setActive(['admin.seller-products.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.seller-products.index') }}">Seller Products</a></li>
-                    <li class="{{ setActive(['admin.seller-pending-products.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.seller-pending-products.index') }}">Seller Pending Products</a></li>
+                    {{-- <li class="{{ setActive(['admin.seller-products.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.seller-products.index') }}">Seller Products</a></li> --}}
+                    {{-- <li class="{{ setActive(['admin.seller-pending-products.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.seller-pending-products.index') }}">Seller Pending Products</a></li> --}}
 
                     <li class="{{ setActive(['admin.reviews.*']) }}"><a class="nav-link"
                             href="{{ route('admin.reviews.index') }}">Product Reviews</a></li>
@@ -127,15 +127,15 @@
                             href="{{ route('admin.coupons.index') }}">Coupons</a></li>
                     <li class="{{ setActive(['admin.shipping-rule.*']) }}"><a class="nav-link"
                             href="{{ route('admin.shipping-rule.index') }}">Shipping Rule</a></li>
-                    <li class="{{ setActive(['admin.vendor-profile.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.vendor-profile.index') }}">Vendor Profile</a></li>
+                    {{-- <li class="{{ setActive(['admin.vendor-profile.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.vendor-profile.index') }}">Vendor Profile</a></li> --}}
                     <li class="{{ setActive(['admin.payment-settings.*']) }}"><a class="nav-link"
                             href="{{ route('admin.payment-settings.index') }}">Payment Settings</a></li>
 
                 </ul>
             </li>
 
-            <li class="dropdown {{ setActive(['admin.withdraw-method.*', 'admin.withdraw.index']) }}">
+            {{-- <li class="dropdown {{ setActive(['admin.withdraw-method.*', 'admin.withdraw.index']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-wallet"></i>
                     <span>Withdraw Payments</span></a>
                 <ul class="dropdown-menu">
@@ -147,7 +147,7 @@
                             href="{{ route('admin.withdraw.index') }}">Withdraw List</a></li>
 
                 </ul>
-            </li>
+            </li> --}}
 
             <li
                 class="dropdown {{ setActive([
@@ -194,9 +194,9 @@
                 </ul>
             </li>
 
-            <li><a class="nav-link {{ setActive(['admin.messages.index']) }}"
+            {{-- <li><a class="nav-link {{ setActive(['admin.messages.index']) }}"
                 href="{{ route('admin.messages.index') }}"><i class="fas fa-user"></i>
-                <span>Messages</span></a></li>
+                <span>Messages</span></a></li> --}}
 
 
 
@@ -240,11 +240,11 @@
                 <ul class="dropdown-menu">
                     <li class="{{ setActive(['admin.customer.index']) }}"><a class="nav-link"
                             href="{{ route('admin.customer.index') }}">Customer list</a></li>
-                    <li class="{{ setActive(['admin.vendor-list.index']) }}"><a class="nav-link"
-                            href="{{ route('admin.vendor-list.index') }}">Vendor list</a></li>
+                    {{-- <li class="{{ setActive(['admin.vendor-list.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.vendor-list.index') }}">Vendor list</a></li> --}}
 
-                    <li class="{{ setActive(['admin.vendor-requests.index']) }}"><a class="nav-link"
-                            href="{{ route('admin.vendor-requests.index') }}">Pending vendors</a></li>
+                    {{-- <li class="{{ setActive(['admin.vendor-requests.index']) }}"><a class="nav-link"
+                            href="{{ route('admin.vendor-requests.index') }}">Pending vendors</a></li> --}}
 
                     <li class="{{ setActive(['admin.admin-list.index']) }}"><a class="nav-link"
                             href="{{ route('admin.admin-list.index') }}">Admin Lists</a></li>

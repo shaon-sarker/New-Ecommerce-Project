@@ -15,7 +15,7 @@
 
             @php
                 $products = \App\Models\Product::withAvg('reviews', 'rating')->withCount('reviews')
-                    ->with(['variants', 'category', 'productImageGalleries'])->whereIn('id', $flashSaleItems)->get();
+                    ->with(['variants', 'category', 'productImageGalleries'])->whereIn('id', $flashSaleItems)->where('status',1)->get();
             @endphp
             @foreach ($products as $product)
                 <x-product-card :product="$product" />

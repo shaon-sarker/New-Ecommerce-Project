@@ -8,7 +8,8 @@ use App\Models\Category;
 use App\Models\ChildCategory;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
-use Str;
+use Illuminate\Support\Str;
+// use Str;
 
 class SubCategoryController extends Controller
 {
@@ -25,7 +26,7 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::where('status',1)->get();
         return view('admin.sub-category.create', compact('categories'));
     }
 
@@ -67,7 +68,7 @@ class SubCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $categories = Category::all();
+        $categories = Category::where('status',1)->get();
         $subCategory = SubCategory::findOrFail($id);
         return view('admin.sub-category.edit', compact('subCategory', 'categories'));
     }

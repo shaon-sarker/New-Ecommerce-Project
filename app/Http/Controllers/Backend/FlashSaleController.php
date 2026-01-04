@@ -8,31 +8,47 @@ use App\Models\FlashSale;
 use App\Models\FlashSaleItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class FlashSaleController extends Controller
 {
     public function index(FlashSaleItemDataTable $dataTable)
     {
-        $flashSaleDate = FlashSale::first();
+        $flashSaleDate = FlashSale::where('status',1)->first();
         $products = Product::where('is_approved', 1)->where('status', 1)->orderBy('id', 'DESC')->get();
         return $dataTable->render('admin.flash-sale.index', compact('flashSaleDate', 'products'));
     }
 
+    // public function update(Request $request)
+    // {
+    //    $request->validate([
+    //     'end_date' => ['required']
+    //    ]);
+
+    //    FlashSale::updateOrCreate(
+    //         ['id' => 1],
+    //         ['end_date' => $request->end_date]
+    //    );
+
+    //    toastr('Updated Successfully!', 'success', 'Success');
+
+    //    return redirect()->back();
+
+    // }
     public function update(Request $request)
     {
-       $request->validate([
-        'end_date' => ['required']
-       ]);
+        $request->validate([
+            'end_date' => ['required', 'date'],
+        ]);
 
-       FlashSale::updateOrCreate(
-            ['id' => 1],
-            ['end_date' => $request->end_date]
-       );
+        FlashSale::where('status', 1)->update([
+            'end_date' => Carbon::parse($request->end_date)->format('Y-m-d')
+        ]);
 
-       toastr('Updated Successfully!', 'success', 'Success');
+        toastr('Updated Successfully!', 'success', 'Success');
 
-       return redirect()->back();
-
+        return redirect()->back();
     }
 
     public function addProduct(Request $request)
@@ -46,7 +62,7 @@ class FlashSaleController extends Controller
         ]);
 
 
-        $flashSaleDate = FlashSale::first();
+        $flashSaleDate = FlashSale::where('status',1)->first();
 
         $flashSaleItem = new FlashSaleItem();
         $flashSaleItem->product_id = $request->product;

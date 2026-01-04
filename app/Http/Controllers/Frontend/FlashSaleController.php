@@ -11,8 +11,11 @@ class FlashSaleController extends Controller
 {
     public function index()
     {
-        $flashSaleDate = FlashSale::first();
-        $flashSaleItems = FlashSaleItem::where('status', 1)->orderBy('id', 'ASC')->pluck('product_id')->toArray();
+        // $flashSaleDate = FlashSale::first();
+        $flashSaleDate = FlashSale::where('status',1)->first();
+        // $flashSaleItems = FlashSaleItem::where('status', 1)->orderBy('id', 'ASC')->pluck('product_id')->toArray();
+        $flashSaleItems = FlashSaleItem::where('flash_sale_id', $flashSaleDate->id)->where('status', 1)->orderBy('id', 'ASC')->pluck('product_id')->toArray();
+        // return $flashSaleItems;
         return view('frontend.pages.flash-sale', compact('flashSaleDate', 'flashSaleItems'));
     }
 }

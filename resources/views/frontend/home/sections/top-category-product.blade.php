@@ -39,19 +39,18 @@
                                 $category = \App\Models\Category::find($lastKey['category']);
                                 $products[] = \App\Models\Product::withAvg('reviews', 'rating')
                                 ->with(['variants', 'category', 'productImageGalleries'])
-                                ->where('category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
+                                ->where('category_id', $category->id)->orderBy('id', 'DESC')->take(12)->where('status',1)->get();
                             }elseif(array_keys($lastKey)[0] === 'sub_category'){
                                 $category = \App\Models\SubCategory::find($lastKey['sub_category']);
                                 $products[] = \App\Models\Product::withAvg('reviews', 'rating')
                                 ->with(['variants', 'category', 'productImageGalleries'])
-                                ->where('sub_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
+                                ->where('sub_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->where('status',1)->get();
 
                             }else {
                                 $category = \App\Models\ChildCategory::find($lastKey['child_category']);
                                 $products[] = \App\Models\Product::withAvg('reviews', 'rating')
                                 ->with(['variants', 'category', 'productImageGalleries'])
-                                ->where('child_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->get();
-
+                                ->where('child_category_id', $category->id)->orderBy('id', 'DESC')->take(12)->where('status',1)->get();
                             }
 
                         @endphp
