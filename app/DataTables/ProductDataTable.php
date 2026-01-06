@@ -44,17 +44,17 @@ class ProductDataTable extends DataTable
             ->addColumn('type', function($query){
                 switch ($query->product_type) {
                     case 'new_arrival':
-                        return '<i class="badge badge-success">New Arrival</i>';
+                        return '<i class="badge badge-success text-dark">New Arrival</i>';
                         break;
                     case 'featured_product':
-                        return '<i class="badge badge-warning">Featured Product</i>';
+                        return '<i class="badge badge-warning text-dark">Featured Product</i>';
                         break;
                     case 'top_product':
                         return '<i class="badge badge-info">Top Product</i>';
                         break;
 
                     case 'best_product':
-                        return '<i class="badge badge-danger">Top Product</i>';
+                        return '<i class="badge badge-danger">Best Product</i>';
                         break;
 
                     default:

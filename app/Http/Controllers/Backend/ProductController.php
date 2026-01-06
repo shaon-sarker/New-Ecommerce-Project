@@ -16,7 +16,8 @@ use App\Models\SubCategory;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Str;
+use Illuminate\Support\Str;
+
 
 class ProductController extends Controller
 {
@@ -34,8 +35,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        $brands = Brand::all();
+        $categories = Category::where('status',1)->get();
+        $brands = Brand::where('status',1)->get();
         return view('admin.product.create', compact('categories', 'brands'));
     }
 
@@ -48,7 +49,7 @@ class ProductController extends Controller
             'image' => ['required', 'image', 'max:3000'],
             'name' => ['required', 'max:200'],
             'category' => ['required'],
-            'brand' => ['required'],
+            'brand' => ['nullable'],
             'price' => ['required'],
             'qty' => ['required'],
             'short_description' => ['required', 'max: 600'],
@@ -108,8 +109,8 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $subCategories = SubCategory::where('category_id', $product->category_id)->get();
         $childCategories = ChildCategory::where('sub_category_id', $product->sub_category_id)->get();
-        $categories = Category::all();
-        $brands = Brand::all();
+        $categories = Category::where('status',1)->get();
+        $brands = Brand::where('status',1)->get();
         return view('admin.product.edit', compact('product', 'categories', 'brands', 'subCategories', 'childCategories'));
     }
 
@@ -122,7 +123,7 @@ class ProductController extends Controller
             'image' => ['nullable', 'image', 'max:3000'],
             'name' => ['required', 'max:200'],
             'category' => ['required'],
-            'brand' => ['required'],
+            'brand' => ['nullable'],
             'price' => ['required'],
             'qty' => ['required'],
             'short_description' => ['required', 'max: 600'],

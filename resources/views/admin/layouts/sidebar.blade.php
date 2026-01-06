@@ -39,6 +39,7 @@
                     'admin.products-variant-item.*',
                     'admin.seller-products.*',
                     'admin.seller-pending-products.*',
+                    'admin.reviews.*'
                 ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-box"></i>
                     <span>Manage Products</span></a>
@@ -51,7 +52,7 @@
                             'admin.products-image-gallery.*',
                             'admin.products-variant.*',
                             'admin.products-variant-item.*',
-                            'admin.reviews.*',
+                            // 'admin.reviews.*',
                         ]) }}">
                         <a class="nav-link" href="{{ route('admin.products.index') }}">Products</a>
                     </li>

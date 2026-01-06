@@ -39,33 +39,33 @@ class OrderDataTable extends DataTable
             })
             ->addColumn('payment_status', function($query){
                 if($query->payment_status === 1){
-                    return "<span class='badge bg-success'>complete</span>";
+                    return "<span class='badge bg-success text-dark p-2'>complete</span>";
                 }else {
-                    return "<span class='badge bg-warning'>pending</span>";
+                    return "<span class='badge bg-warning text-dark p-2'>pending</span>";
                 }
             })
             ->addColumn('order_status', function($query){
                 switch ($query->order_status) {
                     case 'pending':
-                        return "<span class='badge bg-warning'>pending</span>";
+                        return "<span class='badge bg-warning text-dark p-2'>pending</span>";
                         break;
                     case 'processed_and_ready_to_ship':
-                        return "<span class='badge bg-info'>processed</span>";
+                        return "<span class='badge bg-info text-white p-2'>processed</span>";
                         break;
                     case 'dropped_off':
-                        return "<span class='badge bg-info'>dropped off</span>";
+                        return "<span class='badge bg-info text-white p-2'>dropped off</span>";
                         break;
                     case 'shipped':
-                        return "<span class='badge bg-info'>shipped</span>";
+                        return "<span class='badge bg-info text-white p-2'>shipped</span>";
                         break;
                     case 'out_for_delivery':
-                        return "<span class='badge bg-primary'>out for delivery</span>";
+                        return "<span class='badge bg-primary text-white p-2'>out for delivery</span>";
                         break;
                     case 'delivered':
-                        return "<span class='badge bg-success'>delivered</span>";
+                        return "<span class='badge bg-success text-dark p-2'>delivered</span>";
                         break;
                     case 'canceled':
-                        return "<span class='badge bg-danger'>canceled</span>";
+                        return "<span class='badge bg-danger text-white p-2'>canceled</span>";
                         break;
                     default:
                         # code...

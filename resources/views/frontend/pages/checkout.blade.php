@@ -24,8 +24,8 @@
 
 @section('content')
     <!--============================
-            BREADCRUMB START
-        ==============================-->
+                BREADCRUMB START
+            ==============================-->
     <section id="wsus__breadcrumb">
         <div class="wsus_breadcrumb_overlay">
             <div class="container">
@@ -42,13 +42,13 @@
         </div>
     </section>
     <!--============================
-            BREADCRUMB END
-        ==============================-->
+                BREADCRUMB END
+            ==============================-->
 
 
     <!--============================
-            CHECK OUT PAGE START
-        ==============================-->
+                CHECK OUT PAGE START
+            ==============================-->
     <section id="wsus__cart_view">
         <div class="container">
             <div class="row">
@@ -90,7 +90,7 @@
                 <div class="col-xl-4 col-lg-5">
                     <div class="wsus__order_details" id="sticky_sidebar">
                         <p class="wsus__product">shipping Methods</p>
-                        @foreach ($shippingMethods as $method)
+                        {{-- @foreach ($shippingMethods as $method)
                             @if ($method->type === 'min_cost' && getCartTotal() >= $method->min_cost)
                                 <div class="form-check">
                                     <input class="form-check-input shipping_method" type="radio" name="exampleRadios"
@@ -110,7 +110,35 @@
                                     </label>
                                 </div>
                             @endif
+                        @endforeach --}}
+                        @foreach ($shippingMethods as $method)
+                            @php
+                                $radioId = 'shipping_method_' . $method->id;
+                            @endphp
+
+                            @if ($method->type === 'min_cost' && getCartTotal() >= $method->min_cost)
+                                <div class="form-check">
+                                    <input class="form-check-input shipping_method" type="radio" name="shipping_method"
+                                        id="{{ $radioId }}" value="{{ $method->id }}"
+                                        data-id="{{ $method->cost }}">
+                                    <label class="form-check-label" for="{{ $radioId }}">
+                                        {{ $method->name }}
+                                        <span>cost: ({{ $settings->currency_icon }}{{ $method->cost }})</span>
+                                    </label>
+                                </div>
+                            @elseif ($method->type === 'flat_cost')
+                                <div class="form-check">
+                                    <input class="form-check-input shipping_method" type="radio" name="shipping_method"
+                                        id="{{ $radioId }}" value="{{ $method->id }}"
+                                        data-id="{{ $method->cost }}">
+                                    <label class="form-check-label" for="{{ $radioId }}">
+                                        {{ $method->name }}
+                                        <span>cost: ({{ $settings->currency_icon }}{{ $method->cost }})</span>
+                                    </label>
+                                </div>
+                            @endif
                         @endforeach
+
 
                         <div class="wsus__order_details_summery">
                             <p>subtotal: <span>{{ $settings->currency_icon }}{{ getCartTotal() }}</span></p>
@@ -231,8 +259,8 @@
         </div>
     </div>
     <!--============================
-            CHECK OUT PAGE END
-        ==============================-->
+                CHECK OUT PAGE END
+            ==============================-->
 @endsection
 
 @push('scripts')
@@ -298,18 +326,15 @@
 
             })
         })
-
-
     </script>
     <script>
-$(function() {
-    if ($('.select_2').length) {
-        $('.select_2').select2({
-            width: '100%',
-            placeholder: "Select a country",
+        $(function() {
+            if ($('.select_2').length) {
+                $('.select_2').select2({
+                    width: '100%',
+                    placeholder: "Select a country",
+                });
+            }
         });
-    }
-});
-</script>
-
+    </script>
 @endpush

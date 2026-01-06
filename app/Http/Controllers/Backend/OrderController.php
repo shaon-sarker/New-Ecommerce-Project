@@ -107,6 +107,9 @@ class OrderController extends Controller
         $order->order_status = $request->status;
         $order->save();
 
+        // toastr('Updated Order Status!', 'success');
+
+        // return redirect()->route('admin.order.index');
         return response(['status' => 'success', 'message' => 'Updated Order Status']);
     }
 

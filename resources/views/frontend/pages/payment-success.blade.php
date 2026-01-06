@@ -40,7 +40,7 @@
             </div>
         </div>
     </section> --}}
-    <section id="wsus__cart_view" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa;">
+    <section id="wsus__cart_view">
     <div class="container" style="max-width: 600px;">
         <div class="payment-success-card" style="background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center;">
             <!-- Success Icon -->
