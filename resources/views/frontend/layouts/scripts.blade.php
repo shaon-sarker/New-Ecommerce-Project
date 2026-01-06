@@ -16,12 +16,12 @@
                 data: formData,
                 url: "{{ route('add-to-cart') }}",
                 success: function(data) {
-                    if(data.status === 'success'){
+                    if (data.status === 'success') {
                         getCartCount()
                         fetchSidebarCartProducts()
                         $('.mini_cart_actions').removeClass('d-none');
                         toastr.success(data.message);
-                    }else if (data.status === 'error'){
+                    } else if (data.status === 'error') {
                         toastr.error(data.message);
                     }
                 },
@@ -125,56 +125,58 @@
         }
 
         // add product to wishlist
-        $('.add_to_wishlist').on('click', function(e){
+        $('.add_to_wishlist').on('click', function(e) {
             e.preventDefault();
             let id = $(this).data('id');
 
             $.ajax({
                 method: 'GET',
-                url: "{{route('wishlist.store')}}",
-                data: {id:id},
-                success:function(data){
-                    if(data.status === 'success'){
+                url: "{{ route('wishlist.store') }}",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    if (data.status === 'success') {
                         $('#wishlist_count').text(data.count)
                         toastr.success(data.message);
-                    }else if(data.status === 'error'){
+                    } else if (data.status === 'error') {
                         toastr.error(data.message);
                     }
                 },
-                error: function(data){
+                error: function(data) {
                     console.log(data);
                 }
             })
         })
 
         // newsletter
-        $('#newsletter').on('submit', function(e){
+        $('#newsletter').on('submit', function(e) {
             e.preventDefault();
             let data = $(this).serialize();
 
             $.ajax({
                 method: 'POST',
-                url: "{{route('newsletter-request')}}",
+                url: "{{ route('newsletter-request') }}",
                 data: data,
-                beforeSend: function(){
+                beforeSend: function() {
                     $('.subscribe_btn').text('Loading...');
                 },
-                success: function(data){
-                    if(data.status === 'success'){
+                success: function(data) {
+                    if (data.status === 'success') {
                         $('.subscribe_btn').text('Subscribe');
                         $('.newsletter_email').val('');
                         toastr.success(data.message);
 
-                    }else if(data.status === 'error'){
+                    } else if (data.status === 'error') {
 
                         $('.subscribe_btn').text('Subscribe');
                         toastr.error(data.message);
                     }
                 },
-                error: function(data){
+                error: function(data) {
                     let errors = data.responseJSON.errors;
-                    if(errors){
-                        $.each(errors, function(key, value){
+                    if (errors) {
+                        $.each(errors, function(key, value) {
                             toastr.error(value);
                         })
                     }
@@ -184,26 +186,70 @@
         })
 
 
-        $('.show_product_modal').on('click', function(){
+        // $('.show_product_modal').on('click', function(){
+        //     let id = $(this).data('id');
+
+        //     $.ajax({
+        //         mehtod: 'GET',
+        //         url: '{{ route('show-product-modal', ':id') }}'.replace(":id", id),
+        //         beforeSend: function(){
+        //             $('.product-modal-content').html('<span class="loader"></span>')
+        //         },
+        //         success: function(response){
+        //             $('.product-modal-content').html(response)
+        //         },
+        //         error: function(xhr, status, error){
+
+        //         },
+        //         complete: function(){
+
+        //         }
+        //     })
+        // })
+        $('.show_product_modal').on('click', function() {
             let id = $(this).data('id');
 
             $.ajax({
-                mehtod: 'GET',
-                url: '{{ route("show-product-modal", ":id" ) }}'.replace(":id", id),
-                beforeSend: function(){
+                method: 'GET', // eikhane 'mehtod' spelling error chilo
+                url: '{{ route('show-product-modal', ':id') }}'.replace(":id", id),
+                beforeSend: function() {
                     $('.product-modal-content').html('<span class="loader"></span>')
                 },
-                success: function(response){
-                    $('.product-modal-content').html(response)
-                },
-                error: function(xhr, status, error){
+                success: function(response) {
+                    $('.product-modal-content').html(response);
+
+                    // ✅ Increment/Decrement button JS
+                    $('.product-modal-content').find('.qty-btn.increment').off('click').on(
+                        'click',
+                        function() {
+                            let input = $(this).closest('.select_number').find(
+                                '.number_area');
+                            let max = parseInt(input.attr('max')) || 100;
+                            let current = parseInt(input.val()) || 1;
+                            if (current < max) {
+                                input.val(current + 1);
+                            }
+                        });
+
+                    $('.product-modal-content').find('.qty-btn.decrement').off('click').on(
+                        'click',
+                        function() {
+                            let input = $(this).closest('.select_number').find(
+                                '.number_area');
+                            let min = parseInt(input.attr('min')) || 1;
+                            let current = parseInt(input.val()) || 1;
+                            if (current > min) {
+                                input.val(current - 1);
+                            }
+                        });
 
                 },
-                complete: function(){
-
+                error: function(xhr, status, error) {
+                    console.log(error);
                 }
-            })
-        })
+            });
+        });
+
 
     })
 </script>

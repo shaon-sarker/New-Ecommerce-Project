@@ -76,9 +76,9 @@
                                                             <th class="name">
                                                                 product
                                                             </th>
-                                                            <th class="amount">
+                                                            {{-- <th class="amount">
                                                                 Vendor
-                                                            </th>
+                                                            </th> --}}
 
                                                             <th class="amount">
                                                                 amount
@@ -105,9 +105,9 @@
                                                                                 )</span>
                                                                         @endforeach
                                                                     </td>
-                                                                    <td class="amount">
+                                                                    {{-- <td class="amount">
                                                                         {{ $product->vendor->shop_name }}
-                                                                    </td>
+                                                                    </td> --}}
                                                                     <td class="amount">
                                                                         {{ $settings->currency_icon }}
                                                                         {{ $product->unit_price }}

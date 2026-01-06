@@ -4357,6 +4357,7 @@ CART VIEW PAGE START
   border: 0;
   overflow: hidden;
   align-items: center;
+  /* margin-left: 10px; */
 }
 
 .wsus__cart_list .wsus__pro_img {

@@ -40,7 +40,7 @@
                         <div class="table-responsive">
                             <table>
                                 <tbody>
-                                    <tr class="d-flex">
+                                    <tr class="d-flex d-block">
                                         <th class="wsus__pro_img">
                                             product item
                                         </th>
@@ -64,7 +64,8 @@
                                     @foreach ($wishlistProducts as $item)
 
                                     <tr class="d-flex">
-                                        <td class="wsus__pro_img"><img src="{{asset($item->product->thumb_image)}}" alt="product"
+                                        <td class="wsus__pro_img">
+                                            <img src="{{asset($item->product->thumb_image)}}" alt="product"
                                                 class="img-fluid w-100">
                                             <a href="{{route('user.wishlist.destory', $item->id)}}"><i class="far fa-times"></i></a>
                                         </td>
@@ -83,7 +84,7 @@
                                             </h6>
                                         </td>
 
-                                        <td class="">
+                                        <td class="wsus__pro_icon">
                                             <a class="common_btn" href="{{route('product-detail', $item->product->slug)}}">View Product</a>
                                         </td>
                                     </tr>
@@ -98,6 +99,8 @@
             </div>
         </div>
     </section>
+
+
     <!--============================
         CART VIEW PAGE END
     ==============================-->

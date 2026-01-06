@@ -79,6 +79,12 @@ class HomeController extends Controller
 
     public function getTypeBaseProduct()
     {
+        //dd(
+        //     Product::where('product_type','new_arrival')
+        //     ->where('is_approved',1)
+        //     ->where('status',1)
+        //     ->toSql()
+        // );
         $typeBaseProducts = [];
 
         $typeBaseProducts['new_arrival'] = Product::withAvg('reviews', 'rating')->withCount('reviews')

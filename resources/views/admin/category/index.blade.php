@@ -1,5 +1,28 @@
 @extends('admin.layouts.master')
+@push('style')
+<style>
+    /* Force clear borders for DataTable */
+#category-table {
+    border: 1px solid #616161 !important;
+}
 
+#category-table thead th,
+#category-table tbody td {
+    border: 1px solid #616161 !important;
+}
+
+#category-table thead th {
+    background-color: #f1f3f5;
+    color: #000;
+    font-weight: 600;
+}
+
+#category-table tbody tr td {
+    background-color: #ffffff;
+}
+
+</style>
+@endpush
 @section('content')
       <!-- Main Content -->
         <section class="section">
@@ -19,7 +42,12 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    {{ $dataTable->table() }}
+                    {{-- {{ $dataTable->table() }} --}}
+                    {{ $dataTable->table([
+                        'class' => 'table table-bordered table-hover w-100',
+                        // 'style' => 'width:100%',
+                        'id' => 'category-table',
+                    ]) }}
                   </div>
 
                 </div>

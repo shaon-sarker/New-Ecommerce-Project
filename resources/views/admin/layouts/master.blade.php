@@ -35,6 +35,7 @@
   @if($settings->layout === 'RTL')
   <link rel="stylesheet" href="{{asset('backend/assets/css/rtl.css')}}">
   @endif
+  @stack('style')
 
   <script>
     const USER = {
