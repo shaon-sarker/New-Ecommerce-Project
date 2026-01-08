@@ -195,11 +195,19 @@ class FrontendProductController extends Controller
     {
         $product = Product::with(['vendor', 'category', 'productImageGalleries', 'variants', 'brand'])->where('slug', $slug)->where('status', 1)->first();
         $reviews = ProductReview::where('product_id', $product->id)->where('status', 1)->paginate(10);
-        return view('frontend.pages.product-detail', compact('product', 'reviews'));
+        $similarProducts = Product::with(['productImageGalleries'])
+            ->where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->where('status', 1)
+            ->latest()
+            ->take(4)
+            ->get();
+        // return $similarProducts;
+        return view('frontend.pages.product-detail', compact('product', 'reviews','similarProducts'));
     }
 
     public function chageListView(Request $request)
     {
-       Session::put('product_list_style', $request->style);
+        Session::put('product_list_style', $request->style);
     }
 }
